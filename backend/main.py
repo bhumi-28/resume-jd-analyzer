@@ -13,7 +13,7 @@ app = FastAPI(title="Resume JD Analyzer API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://resume-jd-analyzer-chi.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
