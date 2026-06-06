@@ -70,6 +70,11 @@ def health() -> dict:
     return {"status": "ok", "message": "Resume JD Analyzer API is running"}
 
 
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "Resume JD Analyzer API"}
+
+
 @app.post("/analyze")
 async def analyze(resume: UploadFile = File(...), jd: str = Form(...)):
     client = OpenAI(api_key=os.getenv("GROQ_API_KEY"), base_url="https://api.groq.com/openai/v1")
