@@ -1,8 +1,14 @@
 # Resume JD Analyzer
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge)](https://resume-jd-analyzer-chi.vercel.app)
+[![Backend](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge)](https://resume-jd-analyzer-mvuw.onrender.com/health)
+[![Made with](https://img.shields.io/badge/AI-Groq%20LLaMA%203.1-orange?style=for-the-badge)](https://console.groq.com)
+
 A full-stack AI-powered web app that analyzes how well a resume matches
 a job description — giving a match score, skill gaps, strengths, and
 actionable suggestions.
+
+🌐 **Live Demo:** [https://resume-jd-analyzer-chi.vercel.app](https://resume-jd-analyzer-chi.vercel.app)
 
 ## 🔗 Live Demo
 - **App:** https://resume-jd-analyzer-chi.vercel.app
