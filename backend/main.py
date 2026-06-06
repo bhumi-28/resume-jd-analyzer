@@ -9,11 +9,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = FastAPI(title="Resume JD Analyzer API")
+app = FastAPI(title="Resume JD Analyzer API", redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://resume-jd-analyzer-chi.vercel.app"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
