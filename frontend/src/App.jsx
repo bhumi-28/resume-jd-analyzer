@@ -5,7 +5,9 @@ import JDInput from './components/JDInput'
 import ResultCard from './components/ResultCard'
 import Spinner from './components/Spinner'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = typeof window !== 'undefined' && window.location.hostname !== 'localhost'
+  ? '/api'
+  : (import.meta.env.VITE_API_URL || 'http://localhost:8000')
 
 export default function App() {
   const [resumeFile, setResumeFile] = useState(null)
