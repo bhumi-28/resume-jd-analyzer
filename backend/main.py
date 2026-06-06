@@ -19,7 +19,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"), timeout=30.0)
+client = OpenAI(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
+)
 
 SYSTEM_PROMPT = """You are an expert technical recruiter and career coach.
 Your job is to compare a candidate's resume against a job description and produce a structured analysis.
@@ -93,7 +96,7 @@ async def analyze(resume: UploadFile = File(...), jd: str = Form(...)):
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": build_user_prompt(resume_text, jd)},
