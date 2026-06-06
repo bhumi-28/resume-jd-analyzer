@@ -19,11 +19,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = OpenAI(
-    api_key=os.getenv("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1"
-)
-
 SYSTEM_PROMPT = """You are an expert technical recruiter and career coach.
 Your job is to compare a candidate's resume against a job description and produce a structured analysis.
 You must respond with ONLY a raw JSON object, no markdown, no backticks, no explanation.
@@ -77,6 +72,8 @@ def health() -> dict:
 
 @app.post("/analyze")
 async def analyze(resume: UploadFile = File(...), jd: str = Form(...)):
+    client = OpenAI(api_key=os.getenv("GROQ_API_KEY"), base_url="https://api.groq.com/openai/v1")
+
     if resume.content_type not in ("application/pdf", "application/octet-stream"):
         raise HTTPException(status_code=400, detail="Only PDF files are accepted.")
 
