@@ -1,47 +1,68 @@
 # Resume JD Analyzer
 
-Resume JD Analyzer compares a candidate's PDF resume against a job description and returns a structured match score, strengths, missing skills, and improvement suggestions.
+A full-stack AI-powered web app that analyzes how well a resume matches
+a job description — giving a match score, skill gaps, strengths, and
+actionable suggestions.
 
-## Live Demo
+## 🔗 Live Demo
+- **App:** https://resume-jd-analyzer-chi.vercel.app
+- **API:** https://resume-jd-analyzer-mvuw.onrender.com/health
 
-- Frontend: https://your-app.vercel.app
-- Backend API: https://your-api.onrender.com
+## ✨ Features
+- Upload any PDF resume and paste a job description
+- AI returns a match score (0-100%) with color-coded ring
+- Highlights strengths, missing skills, keyword matches
+- Gives 5 concrete suggestions to improve your resume
+- Fully responsive UI
 
-## Tech Stack
+## 🏗️ Architecture
+User → React Frontend (Vercel) → Vercel Proxy → FastAPI Backend (Render) → Groq LLaMA 3.1 API
 
-- React + Vite
-- FastAPI + PyMuPDF
-- OpenAI GPT-4o-mini
-- Render
-- Vercel
+## 🛠️ Tech Stack
+| Area | Technologies |
+|------|--------------|
+| Frontend | React 18, Vite, Axios, CSS |
+| Backend | FastAPI, PyMuPDF, Python 3.11 |
+| AI Model | Groq LLaMA 3.1 (llama-3.1-8b-instant) |
+| Deployment | Vercel (frontend), Render (backend) |
+| Monitoring | UptimeRobot |
 
-## Local Development
+## 📁 Repository Structure
+resume-jd-analyzer/
+  backend/
+    main.py
+    requirements.txt
+    Procfile
+  frontend/
+    src/
+      components/
+      App.jsx
+      main.jsx
+    package.json
+    vite.config.js
+    vercel.json
 
+## 🚀 Local Setup
 ### Backend
-
-```bash
 cd backend
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+python3.11 -m venv venv
+source venv/bin/activate  # Windows: .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+# Create .env with GROQ_API_KEY=your_key
 uvicorn main:app --reload --port 8000
-```
 
 ### Frontend
-
-```bash
 cd frontend
 npm install
+# Create .env with VITE_API_URL=http://localhost:8000
 npm run dev
-```
 
-## Environment Variables
+## 📡 API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /health | Health check |
+| POST | /analyze | Analyze resume vs JD |
 
-### Backend
-
-- OPENAI_API_KEY
-
-### Frontend
-
-- VITE_API_URL
+## 📄 License
+MIT
 
